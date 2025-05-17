@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <title>Number of Books Read</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+  <h1>Library Book Tracker</h1>
+  <button onclick="showNumberOfBooksRead()">Show Number of Books Read</button>
+  <p id="result"></p>
+
+  <script>
+    const library = [
+      {
+        author: 'Bill Gates',
+        title: 'The Road Ahead',
+        readingStatus: true
+      },
+      {
+        author: 'Steve Jobs',
+        title: 'Walter Isaacson',
+        readingStatus: true
+      },
+      {
+        author: 'Suzanne Collins',
+        title: 'Mockingjay: The Final Book of The Hunger Games',
+        readingStatus: false
+      }
+    ];
+
+    function numberOfBooksRead(library) {
+      return library.filter(book => book.readingStatus === true).length;
+    }
+
+    function showNumberOfBooksRead() {
+      const count = numberOfBooksRead(library);
+      document.getElementById("result").innerText = `Number of books read: ${count}`;
+    }
+  </script>
 
 </body>
-
 </html>
